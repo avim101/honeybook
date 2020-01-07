@@ -1,0 +1,80 @@
+<nz-layout class="gallery-page">
+  <nz-header class="gallery-header">
+    <nz-page-header nzTitle="My Contacts" [nzSubtitle]="'Here you can find all your contacts'"></nz-page-header>
+  </nz-header>
+  <nz-spin nzTip="Loading..." [nzSpinning]="listLoading" [nzDelay]="500">
+    <nz-content class="gallery-content" infiniteScroll (scrolled)="loadMore()">
+      <div nz-row class="img-list-container">
+        <div nz-col nzXs="12" nzSm="12" nzMd="8" nzLg="6" nzXl="6"
+             style=" padding: 15px; float: left!important;"
+             *ngFor="let img of imgList">
+          <hb-contact-card
+            [title]="img.title"
+            [alt]="img.alt"
+            [src]="img.src"
+            [pixelSrc]="img.pixelSrc"
+            [id]="img.id"
+            (deleted)="onDelete(img)"
+            (showMore)="onShowMore(img)"
+            (titleChanged)="onTitleChanged(img)">
+          </hb-contact-card>
+        </div>
+        <button
+          *ngIf="loadMoreSpinner"
+          class="loading-button"
+          nz-button nzType="link"
+          nzLoading="true"
+          nzSize="large"
+          nzBlock="'true'">
+          Loading...
+        </button>
+      </div>
+    </nz-content>
+  </nz-spin>
+</nz-layout>
+
+<nz-drawer
+  nzWrapClassName="image-detail-drawer"
+  nzTitle="Image Info"
+  [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto'}"
+  [nzVisible]="visible"
+  (nzOnClose)="onClose()"
+>
+  <div>
+    <nz-skeleton [nzActive]="true" [nzLoading]="loadingImg" [nzParagraph]="{ rows: 10 }">
+      <nz-card [nzCover]="coverTemplate" [nzBordered]="false">
+        <nz-descriptions>
+          <nz-descriptions-item nzTitle="Id: "> {{selectedImg?.id}}</nz-descriptions-item>
+        </nz-descriptions>
+        <nz-descriptions>
+          <nz-descriptions-item nzTitle="Created at: "> {{selectedImg?.created_at | date}}</nz-descriptions-item>
+        </nz-descriptions>
+        <nz-descriptions>
+          <nz-descriptions-item nzTitle="Updated at: "> {{selectedImg?.updated_at | date}}</nz-descriptions-item>
+        </nz-descriptions>
+        <nz-descriptions>
+          <nz-descriptions-item nzTitle="Tags: ">
+            <nz-tag style="margin-bottom: 5px;" [nzColor]="'blue'"
+                    *ngFor="let tag of selectedImg?.tags">{{tag.title}}</nz-tag>
+          </nz-descriptions-item>
+        </nz-descriptions>
+        <ng-template #coverTemplate>
+          <img alt="example" src="{{selectedImg?.urls?.small}}"/>
+        </ng-template>
+      </nz-card>
+    </nz-skeleton>
+    <nz-divider></nz-divider>
+    <nz-skeleton [nzActive]="true" [nzLoading]="loadingImg" [nzAvatar]="true">
+      <nz-card [nzBordered]="false">
+        <nz-card-meta
+          [nzAvatar]="avatarTemplate"
+          [nzTitle]="selectedImg?.user?.name"
+          [nzDescription]="selectedImg?.user?.bio"
+        ></nz-card-meta>
+        <ng-template #avatarTemplate>
+          <nz-avatar [nzSrc]="selectedImg?.user?.profile_image?.medium" nzSize="large"></nz-avatar>
+        </ng-template>
+      </nz-card>
+    </nz-skeleton>
+  </div>
+</nz-drawer>

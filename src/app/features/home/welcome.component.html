@@ -1,0 +1,21 @@
+<div class="content">
+  <div nz-row>
+    <div nz-col nzXs="24" [nzMd]="{ span: 12, push: 6 }">
+      <nz-card [nzBordered]="false" class="card">
+        <nz-result
+          nzTitle="Welcome To HoneyBook Contact List App"
+          nzSubTitle="HoneyBook works with the tools you already use, so you can work more efficiently than ever..."
+          [nzIcon]="gallerIcon">
+          <ng-template #gallerIcon>
+            <img src="assets/contact_list.svg" alt="" class="card__img">
+          </ng-template>
+          <div nz-result-extra>
+            <a routerLink="/contact-list">
+              <button nz-button nzType="primary" nzSize="large" nzShape="round">Take me to my contacts</button>
+            </a>
+          </div>
+        </nz-result>
+      </nz-card>
+    </div>
+  </div>
+</div>
