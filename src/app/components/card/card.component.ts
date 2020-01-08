@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
   /**
    * @description card description to display under the title
    */
-  @Input() public description?: string;
+  @Input() public description?: TemplateRef<void> | string;
 
   /**
    * @description an external template for different actions,
@@ -33,8 +33,14 @@ export class CardComponent implements OnInit {
    */
   @Input() public actions: Array<TemplateRef<void>> = [];
 
+  /**
+   * @description card cover image template
+   */
   @Input() public coverTemplate: TemplateRef<void> = null;
 
+  /**
+   * @description card avatar template
+   */
   @Input() public avatar: TemplateRef<void> = null;
 
   /**

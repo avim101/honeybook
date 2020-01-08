@@ -31,6 +31,26 @@ export class ContactCardComponent extends CardComponent implements OnInit {
    */
   @Input() public icon?: string;
 
+  /**
+   * @description contact company name
+   */
+  @Input() public company_name?: string;
+
+  /**
+   * @description contact job
+   */
+  @Input() public job?: string;
+
+  /**
+   * @description contact email
+   */
+  @Input() public email?: string;
+
+  /**
+   * @description contact phone
+   */
+  @Input() public phone?: string;
+
   constructor() {
     super();
   }

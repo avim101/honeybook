@@ -5,4 +5,8 @@ export interface ContactCard extends Card {
   pixelSrc?: string;
   alt?: string;
   icon?: string;
+  company_name?: string;
+  job?: string;
+  email?: string;
+  phone?: string;
 }

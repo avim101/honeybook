@@ -17,7 +17,10 @@
                *ngFor="let contact of filteredList">
             <hb-contact-card
               [title]="contact.title"
-              [description]="contact.description"
+              [job]="contact.job"
+              [phone]="contact.phone"
+              [company_name]="contact.company_name"
+              [email]="contact.email"
               [src]="contact.src"
               [pixelSrc]="contact.pixelSrc"
               [id]="contact.id"

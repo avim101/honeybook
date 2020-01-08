@@ -1,6 +1,6 @@
 <hb-card
   [title]="title"
-  [description]="description"
+  [description]="descriptionTemplate"
   [hoverable]="hoverable"
   [id]="id"
   [coverTemplate]="coverTemplate"
@@ -14,4 +14,12 @@
 
 <ng-template #avatarTemplate>
   <nz-avatar class="avatar" [nzSrc]="icon"></nz-avatar>
+</ng-template>
+
+<ng-template #descriptionTemplate>
+  <small>{{job}} | {{company_name}}</small>
+  <br/>
+  <small>Phone Number: {{phone}}</small>
+  <br/>
+  <small>{{email}}</small>
 </ng-template>

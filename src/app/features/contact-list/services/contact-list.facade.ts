@@ -24,7 +24,10 @@ export class ContactListFacade {
           return {
             title: contact.name,
             src: contact.profile_image,
-            description: [contact.company_name, contact.job, contact.email].join(', '),
+            company_name: contact.company_name,
+            job: contact.job,
+            email: contact.email,
+            phone: contact.phone,
             icon: contact.icon
           }
         }
