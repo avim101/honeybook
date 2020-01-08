@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'cloudinary'`, () => {
+  it(`should have as title 'honeybook'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('cloudinary');
+    expect(app.title).toEqual('honeybook');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('cloudinary app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('honeybook app is running!');
   });
 });

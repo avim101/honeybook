@@ -14,7 +14,7 @@ import { NgZorroAntdModule, NZ_I18N, en_US} from 'ng-zorro-antd';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './features/home/welcome.component';
-import { PROVIDER_LIST } from './shared/services/image.service';
+import { PROVIDER_LIST } from './shared/services/contacts';
 
 registerLocaleData(en);
 
@@ -32,8 +32,8 @@ registerLocaleData(en);
   ],
   providers: [
     {
-      provide: 'imageProvider',
-      useValue: PROVIDER_LIST.UNSPLASH
+      provide: 'contactProvider',
+      useValue: PROVIDER_LIST.HONEYBOOK
     },
     { provide: NZ_I18N, useValue: en_US }
   ],

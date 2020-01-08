@@ -1,1 +1,56 @@
+:host {
+  ::ng-deep {
 
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      max-width: 100%;
+    }
+
+    .ant-card {
+      overflow: hidden;
+
+      &:hover {
+        .ant-card-body {
+          margin-top: -115px;
+          height: 125px;
+          transition-timing-function: ease-in;
+          transition: 0.35s;
+        }
+      }
+    }
+
+    .ant-card-body {
+      background: #f0f2f5;
+      margin-top: -57px;
+      position: relative;
+      height: 67px;
+      transition-timing-function: ease-out;
+      transition: 0.35s;
+    }
+
+    .ant-card-cover {
+      width: auto;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ant-avatar {
+      position: absolute;
+      top: -20px;
+      left: 15px;
+    }
+
+    .ant-card-meta-title {
+      margin-top: 10px;
+    }
+
+    .avatar {
+      background: white;
+      width: 45px;
+      height: 45px;
+    }
+  }
+}

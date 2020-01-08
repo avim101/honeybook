@@ -3,15 +3,12 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // VENDORS
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 // APP
 import { ContactListComponent } from './contact-list.component';
 import { ContactListRoutingModule } from './contact-list-routing.module';
 import {SharedModule} from "../../shared";
-import {LazyLoadImageModule} from "ng-lazyload-image";
-
-
 
 
 @NgModule({
@@ -21,10 +18,8 @@ import {LazyLoadImageModule} from "ng-lazyload-image";
   imports: [
     ContactListRoutingModule,
     ReactiveFormsModule,
-    InfiniteScrollModule,
     LazyLoadImageModule,
     SharedModule
-
   ]
 })
 export class ContactListModule {

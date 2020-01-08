@@ -5,7 +5,6 @@ import {NgModule} from '@angular/core';
 import {CardComponent} from "./card.component";
 import {NgZorroAntdModule} from "ng-zorro-antd";
 import {CommonModule} from "@angular/common";
-import {LazyLoadImageModule} from "ng-lazyload-image";
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import {LazyLoadImageModule} from "ng-lazyload-image";
   ],
   imports: [
     CommonModule,
-    NgZorroAntdModule,
-    LazyLoadImageModule
+    NgZorroAntdModule
   ],
   exports: [
     CardComponent

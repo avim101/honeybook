@@ -2,13 +2,13 @@
 import { TestBed } from '@angular/core/testing';
 
 // APP
-import { GalleryService } from './gallery.service';
+import { ContactListService } from './contact-list.service';
 
-describe('GalleryService', () => {
+describe('ContactListService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GalleryService = TestBed.get(GalleryService);
+    const service: ContactListService = TestBed.get(ContactListService);
     expect(service).toBeTruthy();
   });
 });

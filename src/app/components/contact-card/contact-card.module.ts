@@ -1,13 +1,16 @@
 // NG
 import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from "@angular/forms";
+
+// VENDORS
+import {NgZorroAntdModule, NZ_ICONS} from "ng-zorro-antd";
+import {DeleteOutline, EditOutline, MoreOutline} from "@ant-design/icons-angular/icons";
+import {IconDefinition} from "@ant-design/icons-angular";
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 // APP
 import {ContactCardComponent} from "./contact-card.component";
-import {ReactiveFormsModule} from "@angular/forms";
-import {NgZorroAntdModule, NZ_ICONS, NzFormModule, NzIconModule, NzPopoverModule} from "ng-zorro-antd";
 import {CardModule} from "../card/card.module";
-import {IconDefinition} from "@ant-design/icons-angular";
-import {DeleteOutline, EditOutline, MoreOutline} from "@ant-design/icons-angular/icons";
 
 const icons: IconDefinition[] = [ DeleteOutline, EditOutline, MoreOutline ];
 
@@ -18,6 +21,7 @@ const icons: IconDefinition[] = [ DeleteOutline, EditOutline, MoreOutline ];
   imports: [
     ReactiveFormsModule,
     NgZorroAntdModule,
+    LazyLoadImageModule,
     CardModule,
   ],
   exports: [

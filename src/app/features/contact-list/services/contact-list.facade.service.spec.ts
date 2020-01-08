@@ -2,13 +2,13 @@
 import { TestBed } from '@angular/core/testing';
 
 // APP
-import { GallerySandboxService } from './gallery.sandbox.service';
+import { ContactListFacade } from './contact-list.facade';
 
-describe('GallerySandboxService', () => {
+describe('ContactSandboxService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GallerySandboxService = TestBed.get(GallerySandboxService);
+    const service: ContactListFacade = TestBed.get(ContactListFacade);
     expect(service).toBeTruthy();
   });
 });

@@ -5,11 +5,12 @@ import {CommonModule} from "@angular/common";
 // VENDOR
 
 // APP
-import {CardComponent} from "../components/card";
 import {NgZorroAntdModule} from "ng-zorro-antd";
 import {LazyLoadImageModule} from "ng-lazyload-image";
 import {ContactCardModule} from "../components/contact-card/contact-card.module";
 import {CardModule} from "../components/card/card.module";
+import {HttpClientModule} from "@angular/common/http";
+import {InputSearchModule} from "../components/input-search/input-search.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {CardModule} from "../components/card/card.module";
   imports: [
     // NG
     CommonModule,
+    HttpClientModule,
 
     // VENDOR
     NgZorroAntdModule,
@@ -24,11 +26,13 @@ import {CardModule} from "../components/card/card.module";
 
     // APP
     ContactCardModule,
-    CardModule
+    CardModule,
+    InputSearchModule
   ],
   exports: [
     // NG
     CommonModule,
+    HttpClientModule,
 
     // VENDOR
     NgZorroAntdModule,
@@ -36,7 +40,8 @@ import {CardModule} from "../components/card/card.module";
 
     // APP
     ContactCardModule,
-    CardModule
+    CardModule,
+    InputSearchModule
   ]
 })
 export class SharedModule {

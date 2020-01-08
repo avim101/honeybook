@@ -1,5 +1,5 @@
-.gallery-page {
-  .gallery-header {
+.contact-page {
+  .contact-header {
     background: transparent;
   }
 
@@ -9,7 +9,7 @@
     }
   }
 
-  .gallery-content {
+  .contact-content {
     min-height: 100vh;
   }
 
@@ -17,11 +17,18 @@
     max-width: 1280px;
     margin: 0 auto;
   }
-}
 
-.image-detail-drawer {
-  width: 100% !important;
-  max-width: 400px;
+  .ant-layout-header {
+    height: auto;
+    padding: 0;
+    border-bottom: 1px solid #dedede;
+  }
+
+  hb-input-search {
+    input {
+      background: transparent;
+    }
+  }
 }
 
 
