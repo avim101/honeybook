@@ -14,7 +14,7 @@ import {ContactCard} from "../../components/contact-card/contact-card.model";
 export class ContactListComponent implements OnInit {
 
   /**
-   * array of contract to display
+   * array of contact to display
    */
   public filteredList: ContactCard[] = [];
 
@@ -24,7 +24,7 @@ export class ContactListComponent implements OnInit {
   public listLoading = true;
 
   /**
-   * contract list
+   * contact list
    */
   private contactList: ContactCard[] = [];
 

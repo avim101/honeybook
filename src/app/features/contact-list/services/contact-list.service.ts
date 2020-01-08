@@ -17,7 +17,7 @@ export class ContactListService {
   }
 
   /**
-   * get a pager options and return list of photos from the imgApi
+   * return list of contacts from selected provider
    */
   public getContactList(): Observable<ContactModel[]> {
     return this.contactsApi.getContactList();

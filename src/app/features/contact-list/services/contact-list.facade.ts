@@ -15,7 +15,7 @@ export class ContactListFacade {
   }
 
   /**
-   * get a pager options and return img card object
+   * get list of contacts and return list of contact card
    */
   public getContactList(): Promise<ContactCard[]> {
     return this.contactListService.getContactList()

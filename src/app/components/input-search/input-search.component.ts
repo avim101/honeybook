@@ -20,6 +20,9 @@ import {debounceTime, distinctUntilChanged, filter, takeUntil, tap} from "rxjs/o
 })
 export class InputSearchComponent implements AfterViewInit, OnDestroy {
 
+  /**
+   * @description event emitter for input change
+   */
   @Output() onChange = new EventEmitter<string>();
 
   /**
