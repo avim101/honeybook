@@ -990,7 +990,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ../../../../environments/environment */
     "./src/environments/environment.ts");
     /**
-     * The idea behind this service is to be able to get a different api providers for contracts (e.g google, apple and others)
+     * The idea behind this service is to be able to get a different api providers for contacts (e.g google, apple and others)
      * but wrap them in a single service and expose the same api for all of them,
      * I will be happy to elaborate if needed
      */
@@ -999,7 +999,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     // VENDOR
 
     /**
-     * list of image provider we support
+     * list of contacts providers we support
      */
 
 
@@ -1021,7 +1021,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       /**
-       * Each module / component can pass to the service which image provide he wants to use
+       * Each module / component can pass to the service which contact provide he wants to use
        * @param contactProvider provider to use
        * @param options as configuration object for the provider
        * @param injector

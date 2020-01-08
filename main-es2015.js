@@ -478,7 +478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
 
 /**
- * The idea behind this service is to be able to get a different api providers for contracts (e.g google, apple and others)
+ * The idea behind this service is to be able to get a different api providers for contacts (e.g google, apple and others)
  * but wrap them in a single service and expose the same api for all of them,
  * I will be happy to elaborate if needed
  */
@@ -489,7 +489,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // VENDOR
 /**
- * list of image provider we support
+ * list of contacts providers we support
  */
 const PROVIDER_LIST = {
     HONEYBOOK: _providers_honeybook_honeybook_contacts_service__WEBPACK_IMPORTED_MODULE_2__["HoneybookContacts"]
@@ -505,7 +505,7 @@ providersConfig.set(PROVIDER_LIST.HONEYBOOK, {
 });
 let ContactsService = class ContactsService {
     /**
-     * Each module / component can pass to the service which image provide he wants to use
+     * Each module / component can pass to the service which contact provide he wants to use
      * @param contactProvider provider to use
      * @param options as configuration object for the provider
      * @param injector

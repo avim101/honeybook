@@ -482,7 +482,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<hb-card\n  [title]=\"title\"\n  [description]=\"description\"\n  [hoverable]=\"hoverable\"\n  [id]=\"id\"\n  [coverTemplate]=\"coverTemplate\"\n  [avatar]=\"avatarTemplate\"\n></hb-card>\n\n<ng-template #coverTemplate>\n  <img [src]=\"pixelSrc || 'assets/contact.svg'\">\n  <img lazyLoad=\"{{src}}\">\n</ng-template>\n\n<ng-template #avatarTemplate>\n  <nz-avatar class=\"avatar\" [nzSrc]=\"icon\"></nz-avatar>\n</ng-template>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<hb-card\n  [title]=\"title\"\n  [description]=\"descriptionTemplate\"\n  [hoverable]=\"hoverable\"\n  [id]=\"id\"\n  [coverTemplate]=\"coverTemplate\"\n  [avatar]=\"avatarTemplate\"\n></hb-card>\n\n<ng-template #coverTemplate>\n  <img [src]=\"pixelSrc || 'assets/contact.svg'\">\n  <img lazyLoad=\"{{src}}\">\n</ng-template>\n\n<ng-template #avatarTemplate>\n  <nz-avatar class=\"avatar\" [nzSrc]=\"icon\"></nz-avatar>\n</ng-template>\n\n<ng-template #descriptionTemplate>\n  <small>{{job}} | {{company_name}}</small>\n  <br/>\n  <small>Phone Number: {{phone}}</small>\n  <br/>\n  <small>{{email}}</small>\n</ng-template>\n");
 
 /***/ }),
 
@@ -508,7 +508,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nz-layout class=\"contact-page\">\n  <nz-header class=\"contact-header\">\n    <nz-page-header>\n      <nz-page-header-title>My Contacts</nz-page-header-title>\n      <nz-page-header-subtitle>Here you can find all your contacts</nz-page-header-subtitle>\n      <nz-page-header-extra nz-col nzXs=\"24\" nzSm=\"24\" nzMd=\"12\" nzLg=\"6\" nzXl=\"6\">\n        <hb-input-search (onChange)=\"onSearchChanged($event)\"></hb-input-search>\n      </nz-page-header-extra>\n    </nz-page-header>\n  </nz-header>\n  <nz-content>\n    <nz-spin nzTip=\"Loading...\" [nzSpinning]=\"listLoading\" [nzDelay]=\"500\">\n      <nz-content class=\"contact-content\">\n        <div nz-row class=\"img-list-container\">\n          <div nz-col nzXs=\"12\" nzSm=\"12\" nzMd=\"8\" nzLg=\"6\" nzXl=\"6\"\n               style=\" padding: 15px; float: left!important;\"\n               *ngFor=\"let contact of filteredList\">\n            <hb-contact-card\n              [title]=\"contact.title\"\n              [description]=\"contact.description\"\n              [src]=\"contact.src\"\n              [pixelSrc]=\"contact.pixelSrc\"\n              [id]=\"contact.id\"\n              [icon]=\"contact.icon\">\n            </hb-contact-card>\n          </div>\n        </div>\n      </nz-content>\n    </nz-spin>\n  </nz-content>\n</nz-layout>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nz-layout class=\"contact-page\">\n  <nz-header class=\"contact-header\">\n    <nz-page-header>\n      <nz-page-header-title>My Contacts</nz-page-header-title>\n      <nz-page-header-subtitle>Here you can find all your contacts</nz-page-header-subtitle>\n      <nz-page-header-extra nz-col nzXs=\"24\" nzSm=\"24\" nzMd=\"12\" nzLg=\"6\" nzXl=\"6\">\n        <hb-input-search (onChange)=\"onSearchChanged($event)\"></hb-input-search>\n      </nz-page-header-extra>\n    </nz-page-header>\n  </nz-header>\n  <nz-content>\n    <nz-spin nzTip=\"Loading...\" [nzSpinning]=\"listLoading\" [nzDelay]=\"500\">\n      <nz-content class=\"contact-content\">\n        <div nz-row class=\"img-list-container\">\n          <div nz-col nzXs=\"12\" nzSm=\"12\" nzMd=\"8\" nzLg=\"6\" nzXl=\"6\"\n               style=\" padding: 15px; float: left!important;\"\n               *ngFor=\"let contact of filteredList\">\n            <hb-contact-card\n              [title]=\"contact.title\"\n              [job]=\"contact.job\"\n              [phone]=\"contact.phone\"\n              [company_name]=\"contact.company_name\"\n              [email]=\"contact.email\"\n              [src]=\"contact.src\"\n              [pixelSrc]=\"contact.pixelSrc\"\n              [id]=\"contact.id\"\n              [icon]=\"contact.icon\">\n            </hb-contact-card>\n          </div>\n        </div>\n      </nz-content>\n    </nz-spin>\n  </nz-content>\n</nz-layout>\n");
 
 /***/ }),
 
@@ -551,7 +551,13 @@ let CardComponent = class CardComponent {
          * </ng-template>
          */
         this.actions = [];
+        /**
+         * @description card cover image template
+         */
         this.coverTemplate = null;
+        /**
+         * @description card avatar template
+         */
         this.avatar = null;
         /**
          * rather or not car should show box shadow on hover
@@ -665,7 +671,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (":host ::ng-deep img {\n  position: absolute;\n  left: 0;\n  top: 0;\n  max-width: 100%;\n}\n:host ::ng-deep .ant-card {\n  overflow: hidden;\n}\n:host ::ng-deep .ant-card:hover .ant-card-body {\n  margin-top: -115px;\n  height: 125px;\n  transition-timing-function: ease-in;\n  transition: 0.35s;\n}\n:host ::ng-deep .ant-card-body {\n  background: #f0f2f5;\n  margin-top: -57px;\n  position: relative;\n  height: 67px;\n  transition-timing-function: ease-out;\n  transition: 0.35s;\n}\n:host ::ng-deep .ant-card-cover {\n  width: auto;\n  height: 250px;\n  position: relative;\n  overflow: hidden;\n}\n:host ::ng-deep .ant-avatar {\n  position: absolute;\n  top: -20px;\n  left: 15px;\n}\n:host ::ng-deep .ant-card-meta-title {\n  margin-top: 10px;\n}\n:host ::ng-deep .avatar {\n  background: white;\n  width: 45px;\n  height: 45px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hdmltYXNsYXRpMS9wcm9qZWN0cy9ob25leWJvb2svc3JjL2FwcC9jb21wb25lbnRzL2NvbnRhY3QtY2FyZC9jb250YWN0LWNhcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvY29udGFjdC1jYXJkL2NvbnRhY3QtY2FyZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHSTtFQUNFLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLE1BQUE7RUFDQSxlQUFBO0FDRk47QURLSTtFQUNFLGdCQUFBO0FDSE47QURNUTtFQUNFLGtCQUFBO0VBQ0EsYUFBQTtFQUNBLG1DQUFBO0VBQ0EsaUJBQUE7QUNKVjtBRFNJO0VBQ0UsbUJBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLG9DQUFBO0VBQ0EsaUJBQUE7QUNQTjtBRFVJO0VBQ0UsV0FBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0FDUk47QURXSTtFQUNFLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFVBQUE7QUNUTjtBRFlJO0VBQ0UsZ0JBQUE7QUNWTjtBRGFJO0VBQ0UsaUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ1hOIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9jb250YWN0LWNhcmQvY29udGFjdC1jYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICA6Om5nLWRlZXAge1xuXG4gICAgaW1nIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGxlZnQ6IDA7XG4gICAgICB0b3A6IDA7XG4gICAgICBtYXgtd2lkdGg6IDEwMCU7XG4gICAgfVxuXG4gICAgLmFudC1jYXJkIHtcbiAgICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAgICY6aG92ZXIge1xuICAgICAgICAuYW50LWNhcmQtYm9keSB7XG4gICAgICAgICAgbWFyZ2luLXRvcDogLTExNXB4O1xuICAgICAgICAgIGhlaWdodDogMTI1cHg7XG4gICAgICAgICAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGVhc2UtaW47XG4gICAgICAgICAgdHJhbnNpdGlvbjogMC4zNXM7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG5cbiAgICAuYW50LWNhcmQtYm9keSB7XG4gICAgICBiYWNrZ3JvdW5kOiAjZjBmMmY1O1xuICAgICAgbWFyZ2luLXRvcDogLTU3cHg7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICBoZWlnaHQ6IDY3cHg7XG4gICAgICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogZWFzZS1vdXQ7XG4gICAgICB0cmFuc2l0aW9uOiAwLjM1cztcbiAgICB9XG5cbiAgICAuYW50LWNhcmQtY292ZXIge1xuICAgICAgd2lkdGg6IGF1dG87XG4gICAgICBoZWlnaHQ6IDI1MHB4O1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB9XG5cbiAgICAuYW50LWF2YXRhciB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICB0b3A6IC0yMHB4O1xuICAgICAgbGVmdDogMTVweDtcbiAgICB9XG5cbiAgICAuYW50LWNhcmQtbWV0YS10aXRsZSB7XG4gICAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICAgIH1cblxuICAgIC5hdmF0YXIge1xuICAgICAgYmFja2dyb3VuZDogd2hpdGU7XG4gICAgICB3aWR0aDogNDVweDtcbiAgICAgIGhlaWdodDogNDVweDtcbiAgICB9XG4gIH1cbn1cbiIsIjpob3N0IDo6bmctZGVlcCBpbWcge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuOmhvc3QgOjpuZy1kZWVwIC5hbnQtY2FyZCB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG46aG9zdCA6Om5nLWRlZXAgLmFudC1jYXJkOmhvdmVyIC5hbnQtY2FyZC1ib2R5IHtcbiAgbWFyZ2luLXRvcDogLTExNXB4O1xuICBoZWlnaHQ6IDEyNXB4O1xuICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogZWFzZS1pbjtcbiAgdHJhbnNpdGlvbjogMC4zNXM7XG59XG46aG9zdCA6Om5nLWRlZXAgLmFudC1jYXJkLWJvZHkge1xuICBiYWNrZ3JvdW5kOiAjZjBmMmY1O1xuICBtYXJnaW4tdG9wOiAtNTdweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IDY3cHg7XG4gIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlLW91dDtcbiAgdHJhbnNpdGlvbjogMC4zNXM7XG59XG46aG9zdCA6Om5nLWRlZXAgLmFudC1jYXJkLWNvdmVyIHtcbiAgd2lkdGg6IGF1dG87XG4gIGhlaWdodDogMjUwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbjpob3N0IDo6bmctZGVlcCAuYW50LWF2YXRhciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAtMjBweDtcbiAgbGVmdDogMTVweDtcbn1cbjpob3N0IDo6bmctZGVlcCAuYW50LWNhcmQtbWV0YS10aXRsZSB7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG46aG9zdCA6Om5nLWRlZXAgLmF2YXRhciB7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (":host ::ng-deep img {\n  position: absolute;\n  left: 0;\n  top: 0;\n  max-width: 100%;\n}\n:host ::ng-deep .ant-card {\n  overflow: hidden;\n}\n:host ::ng-deep .ant-card:hover .ant-card-body {\n  margin-top: -145px;\n  height: 155px;\n  transition-timing-function: ease-in;\n  transition: 0.35s;\n}\n:host ::ng-deep .ant-card-body {\n  background: #f0f2f5;\n  margin-top: -57px;\n  position: relative;\n  height: 67px;\n  transition-timing-function: ease-out;\n  transition: 0.35s;\n}\n:host ::ng-deep .ant-card-cover {\n  width: auto;\n  height: 250px;\n  position: relative;\n  overflow: hidden;\n}\n:host ::ng-deep .ant-avatar {\n  position: absolute;\n  top: -20px;\n  left: 15px;\n}\n:host ::ng-deep .ant-card-meta-title {\n  margin-top: 10px;\n}\n:host ::ng-deep .avatar {\n  background: white;\n  width: 45px;\n  height: 45px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hdmltYXNsYXRpMS9wcm9qZWN0cy9ob25leWJvb2svc3JjL2FwcC9jb21wb25lbnRzL2NvbnRhY3QtY2FyZC9jb250YWN0LWNhcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvY29udGFjdC1jYXJkL2NvbnRhY3QtY2FyZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHSTtFQUNFLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLE1BQUE7RUFDQSxlQUFBO0FDRk47QURLSTtFQUNFLGdCQUFBO0FDSE47QURNUTtFQUNFLGtCQUFBO0VBQ0EsYUFBQTtFQUNBLG1DQUFBO0VBQ0EsaUJBQUE7QUNKVjtBRFNJO0VBQ0UsbUJBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLG9DQUFBO0VBQ0EsaUJBQUE7QUNQTjtBRFVJO0VBQ0UsV0FBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0FDUk47QURXSTtFQUNFLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFVBQUE7QUNUTjtBRFlJO0VBQ0UsZ0JBQUE7QUNWTjtBRGFJO0VBQ0UsaUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ1hOIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9jb250YWN0LWNhcmQvY29udGFjdC1jYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICA6Om5nLWRlZXAge1xuXG4gICAgaW1nIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGxlZnQ6IDA7XG4gICAgICB0b3A6IDA7XG4gICAgICBtYXgtd2lkdGg6IDEwMCU7XG4gICAgfVxuXG4gICAgLmFudC1jYXJkIHtcbiAgICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAgICY6aG92ZXIge1xuICAgICAgICAuYW50LWNhcmQtYm9keSB7XG4gICAgICAgICAgbWFyZ2luLXRvcDogLTE0NXB4O1xuICAgICAgICAgIGhlaWdodDogMTU1cHg7XG4gICAgICAgICAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGVhc2UtaW47XG4gICAgICAgICAgdHJhbnNpdGlvbjogMC4zNXM7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG5cbiAgICAuYW50LWNhcmQtYm9keSB7XG4gICAgICBiYWNrZ3JvdW5kOiAjZjBmMmY1O1xuICAgICAgbWFyZ2luLXRvcDogLTU3cHg7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICBoZWlnaHQ6IDY3cHg7XG4gICAgICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogZWFzZS1vdXQ7XG4gICAgICB0cmFuc2l0aW9uOiAwLjM1cztcbiAgICB9XG5cbiAgICAuYW50LWNhcmQtY292ZXIge1xuICAgICAgd2lkdGg6IGF1dG87XG4gICAgICBoZWlnaHQ6IDI1MHB4O1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB9XG5cbiAgICAuYW50LWF2YXRhciB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICB0b3A6IC0yMHB4O1xuICAgICAgbGVmdDogMTVweDtcbiAgICB9XG5cbiAgICAuYW50LWNhcmQtbWV0YS10aXRsZSB7XG4gICAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICAgIH1cblxuICAgIC5hdmF0YXIge1xuICAgICAgYmFja2dyb3VuZDogd2hpdGU7XG4gICAgICB3aWR0aDogNDVweDtcbiAgICAgIGhlaWdodDogNDVweDtcbiAgICB9XG4gIH1cbn1cbiIsIjpob3N0IDo6bmctZGVlcCBpbWcge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuOmhvc3QgOjpuZy1kZWVwIC5hbnQtY2FyZCB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG46aG9zdCA6Om5nLWRlZXAgLmFudC1jYXJkOmhvdmVyIC5hbnQtY2FyZC1ib2R5IHtcbiAgbWFyZ2luLXRvcDogLTE0NXB4O1xuICBoZWlnaHQ6IDE1NXB4O1xuICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogZWFzZS1pbjtcbiAgdHJhbnNpdGlvbjogMC4zNXM7XG59XG46aG9zdCA6Om5nLWRlZXAgLmFudC1jYXJkLWJvZHkge1xuICBiYWNrZ3JvdW5kOiAjZjBmMmY1O1xuICBtYXJnaW4tdG9wOiAtNTdweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IDY3cHg7XG4gIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlLW91dDtcbiAgdHJhbnNpdGlvbjogMC4zNXM7XG59XG46aG9zdCA6Om5nLWRlZXAgLmFudC1jYXJkLWNvdmVyIHtcbiAgd2lkdGg6IGF1dG87XG4gIGhlaWdodDogMjUwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbjpob3N0IDo6bmctZGVlcCAuYW50LWF2YXRhciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAtMjBweDtcbiAgbGVmdDogMTVweDtcbn1cbjpob3N0IDo6bmctZGVlcCAuYW50LWNhcmQtbWV0YS10aXRsZSB7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG46aG9zdCA6Om5nLWRlZXAgLmF2YXRhciB7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -704,6 +710,18 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], ContactCardComponent.prototype, "icon", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ContactCardComponent.prototype, "company_name", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ContactCardComponent.prototype, "job", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ContactCardComponent.prototype, "email", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ContactCardComponent.prototype, "phone", void 0);
 ContactCardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'hb-contact-card',
@@ -809,6 +827,9 @@ __webpack_require__.r(__webpack_exports__);
 
 let InputSearchComponent = class InputSearchComponent {
     constructor() {
+        /**
+         * @description event emitter for input change
+         */
         this.onChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         /**
          * use to close all component stream ant prevent potential memory leaks
@@ -982,7 +1003,7 @@ let ContactListComponent = class ContactListComponent {
     constructor(facade) {
         this.facade = facade;
         /**
-         * array of contract to display
+         * array of contact to display
          */
         this.filteredList = [];
         /**
@@ -990,7 +1011,7 @@ let ContactListComponent = class ContactListComponent {
          */
         this.listLoading = true;
         /**
-         * contract list
+         * contact list
          */
         this.contactList = [];
     }
@@ -1135,7 +1156,7 @@ let ContactListFacade = class ContactListFacade {
         this.contactListService = contactListService;
     }
     /**
-     * get a pager options and return img card object
+     * get list of contacts and return list of contact card
      */
     getContactList() {
         return this.contactListService.getContactList()
@@ -1144,7 +1165,10 @@ let ContactListFacade = class ContactListFacade {
             return {
                 title: contact.name,
                 src: contact.profile_image,
-                description: [contact.company_name, contact.job, contact.email].join(', '),
+                company_name: contact.company_name,
+                job: contact.job,
+                email: contact.email,
+                phone: contact.phone,
                 icon: contact.icon
             };
         }));
@@ -1186,7 +1210,7 @@ let ContactListService = class ContactListService {
         this.contactsApi = contactsApi;
     }
     /**
-     * get a pager options and return list of photos from the imgApi
+     * return list of contacts from selected provider
      */
     getContactList() {
         return this.contactsApi.getContactList();
