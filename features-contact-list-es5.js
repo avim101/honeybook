@@ -1518,7 +1518,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           return this.filteredList = this.contactList.filter(function (contact) {
-            if (contact.description.toLowerCase().includes(text) || contact.title.toLowerCase().includes(text)) {
+            if (contact.company_name.toLowerCase().includes(text) || contact.title.toLowerCase().includes(text) || contact.job.toLowerCase().includes(text)) {
               return contact;
             }
           });

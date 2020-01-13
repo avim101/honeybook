@@ -1033,7 +1033,9 @@ let ContactListComponent = class ContactListComponent {
         }
         return this.filteredList = this.contactList
             .filter((contact) => {
-            if (contact.description.toLowerCase().includes(text) || contact.title.toLowerCase().includes(text)) {
+            if (contact.company_name.toLowerCase().includes(text) ||
+                contact.title.toLowerCase().includes(text) ||
+                contact.job.toLowerCase().includes(text)) {
                 return contact;
             }
         });
